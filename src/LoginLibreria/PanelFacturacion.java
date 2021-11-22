@@ -6,13 +6,17 @@
 package LoginLibreria;
 
 import Includes.Conexion;
+import Utilerias.Mostrar;
 import com.sun.jdi.connect.spi.Connection;
 import java.beans.Statement;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Gonzalo CH
@@ -35,6 +39,10 @@ public class PanelFacturacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         lblIdFact = new javax.swing.JLabel();
         txtIdFact = new javax.swing.JTextField();
         btnBuscarFact = new javax.swing.JButton();
@@ -44,10 +52,35 @@ public class PanelFacturacion extends javax.swing.JPanel {
         lblFechaDoc = new javax.swing.JLabel();
         lblLinea = new javax.swing.JLabel();
         lblDetallesDoc = new javax.swing.JLabel();
-        lblLibroDoc = new javax.swing.JLabel();
-        lblPrecioDoc = new javax.swing.JLabel();
-        lblCantidadDoc = new javax.swing.JLabel();
-        lblSubDoc = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblFactura = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
         lblIdFact.setText("ID FACTURA:");
 
@@ -67,17 +100,41 @@ public class PanelFacturacion extends javax.swing.JPanel {
 
         lblFechaDoc.setText("FECHA:");
 
-        lblLinea.setText("--------------------------------------------------------------------------------------------------------------------------");
+        lblLinea.setText("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         lblDetallesDoc.setText("DETALLES:");
 
-        lblLibroDoc.setText("LIBRO");
+        tblFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        lblPrecioDoc.setText("PRECIO");
+            },
+            new String [] {
+                "Libro", "Precio", "Cantidad", "Sub Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        lblCantidadDoc.setText("CANTIDAD");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        lblSubDoc.setText("SUBTOTAL");
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tblFactura);
+
+        jButton1.setText("Generar PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,27 +142,20 @@ public class PanelFacturacion extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLinea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblIdDoc)
-                                    .addComponent(lblClienteDoc)
-                                    .addComponent(lblFechaDoc)
-                                    .addComponent(lblDetallesDoc))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblLibroDoc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPrecioDoc)
-                        .addGap(38, 38, 38)
-                        .addComponent(lblCantidadDoc)
-                        .addGap(39, 39, 39)
-                        .addComponent(lblSubDoc)
-                        .addGap(38, 38, 38))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane3)
+                    .addComponent(lblLinea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblIdDoc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblClienteDoc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFechaDoc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDetallesDoc, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(462, 462, 462))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,19 +164,17 @@ public class PanelFacturacion extends javax.swing.JPanel {
                 .addComponent(lblIdDoc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblClienteDoc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblFechaDoc)
                 .addGap(18, 18, 18)
                 .addComponent(lblLinea)
                 .addGap(18, 18, 18)
                 .addComponent(lblDetallesDoc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLibroDoc)
-                    .addComponent(lblPrecioDoc)
-                    .addComponent(lblCantidadDoc)
-                    .addComponent(lblSubDoc))
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addComponent(jButton1)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -134,62 +182,123 @@ public class PanelFacturacion extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblIdFact)
                         .addGap(18, 18, 18)
                         .addComponent(txtIdFact, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscarFact, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdFact)
                     .addComponent(txtIdFact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarFact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
         Conexion conn = new Conexion();
         conn.estableceConexion("Eduardo","987456321");
+        ResultSet rs,rs1;
         String sql = """
-                  SELECT COUNT(*) FROM libreria.libro;
-                  """;
+                     SELECT f.factura_id, concat(c.nombre_persona, ' ', c.apellido_paterno, ' ', c.apellido_materno), 
+                                             to_char(f.fecha_compra, 'YYYY-MM-DD')
+                                             FROM libreria.factura as f, libreria.cliente as c 
+                                             WHERE f.rfc = c.rfc
+                                             AND f.factura_id = ?;
+                     """;
+        
         try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            tblFactura.setModel(modelo);
             PreparedStatement st = conn.cn.prepareStatement(sql) ;
-            ResultSet rs = st.executeQuery();
-            while (rs.next()) {                
-                System.out.println("Numero de libros: " + rs.getString("count"));
+            st.setInt(1, Integer.parseInt(txtIdFact.getText()));
+            rs = st.executeQuery();
+            rs.next();
+            lblIdDoc.setText("Factura id: #" + String.valueOf(rs.getInt("factura_id")));
+            lblClienteDoc.setText("Cliente: " + rs.getString("concat"));
+            lblFechaDoc.setText("Fecha: " + rs.getString("to_char"));
+            sql = """
+                 SELECT l.titulo, l.precio, fl.cantidad_libro, fl.cantidad_libro * l.precio AS total
+                                         FROM libreria.libro as l, libreria.factura_libro as fl 
+                                         WHERE l.isbn = fl.isbn
+                                         AND fl.factura_id = ?;
+                 """;
+            st = conn.cn.prepareStatement(sql);
+            st.setInt(1, Integer.parseInt(txtIdFact.getText()));
+            rs1 = st.executeQuery();
+            ResultSetMetaData rsMd = rs1.getMetaData();
+            int numColumnas = rsMd.getColumnCount();
+            modelo.addColumn("Libro");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Precio");
+            modelo.addColumn("Sub Total");
+            short numLibros = 0;
+            int costoTotal = 0;
+            
+            while (rs1.next()) {                
+                Object[] filas = new Object[numColumnas];
+                for (int i = 0; i < numColumnas; i++) {
+                    filas[i] = rs1.getObject(i+1);
+                }
+                modelo.addRow(filas);
+                numLibros += rs1.getInt("cantidad_libro");
+                costoTotal += rs1.getInt("total");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(PanelFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+            Object[] totales = new Object[numColumnas];
+            totales[0] = "";
+            totales[1] = "T O T A L E S ";
+            totales[2] = String.valueOf(numLibros);
+            totales[3] = String.valueOf("$"+costoTotal);
+            modelo.addRow(totales);
+            
+        } catch (Exception e) {
+            if(txtIdFact.getText().length() <= 0){
+                Mostrar.Mensaje("Ingresa un numero de factura");
+            }else{
+                Mostrar.Mensaje("No existe factura con el Numero: " + txtIdFact.getText());
+            }
+            DefaultTableModel modelo = new DefaultTableModel();
+            tblFactura.setModel(modelo);
+            modelo.addColumn("Libro");
+            modelo.addColumn("Cantidad");
+            modelo.addColumn("Precio");
+            modelo.addColumn("Sub Total");
         }
     }//GEN-LAST:event_btnBuscarFactActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarFact;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCantidadDoc;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblClienteDoc;
     private javax.swing.JLabel lblDetallesDoc;
     private javax.swing.JLabel lblFechaDoc;
     private javax.swing.JLabel lblIdDoc;
     private javax.swing.JLabel lblIdFact;
-    private javax.swing.JLabel lblLibroDoc;
     private javax.swing.JLabel lblLinea;
-    private javax.swing.JLabel lblPrecioDoc;
-    private javax.swing.JLabel lblSubDoc;
+    private javax.swing.JTable tblFactura;
     private javax.swing.JTextField txtIdFact;
     // End of variables declaration//GEN-END:variables
 }
