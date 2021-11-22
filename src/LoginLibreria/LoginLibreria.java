@@ -325,7 +325,7 @@ public class LoginLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnLibreriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibreriasActionPerformed
