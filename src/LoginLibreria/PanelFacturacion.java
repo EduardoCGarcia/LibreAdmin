@@ -5,6 +5,14 @@
  */
 package LoginLibreria;
 
+import Includes.Conexion;
+import com.sun.jdi.connect.spi.Connection;
+import java.beans.Statement;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Gonzalo CH
@@ -44,6 +52,11 @@ public class PanelFacturacion extends javax.swing.JPanel {
         lblIdFact.setText("ID FACTURA:");
 
         btnBuscarFact.setText("Buscar");
+        btnBuscarFact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarFactActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -145,6 +158,23 @@ public class PanelFacturacion extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFactActionPerformed
+        Conexion conn = new Conexion();
+        conn.estableceConexion("Eduardo","987456321");
+        String sql = """
+                  SELECT COUNT(*) FROM libreria.libro;
+                  """;
+        try {
+            PreparedStatement st = conn.cn.prepareStatement(sql) ;
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {                
+                System.out.println("Numero de libros: " + rs.getString("count"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PanelFacturacion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBuscarFactActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

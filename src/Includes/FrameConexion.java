@@ -6,10 +6,14 @@
 package Includes;
 
 import LoginLibreria.LoginLibreria;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 
 /**
@@ -47,7 +51,7 @@ public class FrameConexion extends javax.swing.JFrame {
         fondo.setRuta("usuario.png");
         jPanel1 = fondo;
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -129,16 +133,27 @@ public class FrameConexion extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
             Conexion c = new Conexion();
-            c.estableceConexion(txtUsuario.getText(), String.copyValueOf(pwrContraseña.getPassword()),txtUsuario,pwrContraseña);
-            LoginLibreria l = new LoginLibreria();
-            l.setVisible(true);
-            this.dispose();
+            c.estableceConexion(txtUsuario.getText(), String.copyValueOf(pwrContraseña.getPassword()));
+            if(c.cn!=null){
+                LoginLibreria l = new LoginLibreria();
+                l.setVisible(true);
+                this.dispose();
+            }else{
+                //txtUsuario.setText("");
+                txtUsuario.setBorder(BorderFactory.createLineBorder(Color.RED));
+                
+                //pwrContraseña.setText("");
+                pwrContraseña.setBorder(BorderFactory.createLineBorder(Color.RED)); 
+           }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
 
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
+    
+    
+    
 /**
  * @param args the command line arguments
  */
@@ -185,6 +200,8 @@ public static void main(String args[]) {
             }
         });
     }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
