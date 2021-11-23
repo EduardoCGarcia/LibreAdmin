@@ -262,20 +262,25 @@ public class PanelFacturacion extends javax.swing.JPanel {
             totales[2] = String.valueOf(numLibros);
             totales[3] = String.valueOf("$"+costoTotal);
             modelo.addRow(totales);
+            rs.close();
+            rs1.close();
+            conn.cn.close();
             
         } catch (Exception e) {
-            if(txtIdFact.getText().length() <= 0){
-                Mostrar.Mensaje("Ingresa un numero de factura");
-            }else{
-                Mostrar.Mensaje("No existe factura con el Numero: " + txtIdFact.getText());
-            }
             DefaultTableModel modelo = new DefaultTableModel();
             tblFactura.setModel(modelo);
             modelo.addColumn("Libro");
             modelo.addColumn("Cantidad");
             modelo.addColumn("Precio");
             modelo.addColumn("Sub Total");
+            if(txtIdFact.getText().length() <= 0){
+                Mostrar.Mensaje("Ingresa un numero de factura");
+            }else{
+                Mostrar.Mensaje("No existe factura con el Numero: " + txtIdFact.getText());
+            }
+            
         }
+        
     }//GEN-LAST:event_btnBuscarFactActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

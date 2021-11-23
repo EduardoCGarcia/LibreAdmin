@@ -16,18 +16,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane1" pref="654" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="cbxCategoria" min="-2" pref="133" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" min="-2" pref="598" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,11 +53,54 @@
     <Component class="javax.swing.JComboBox" name="cbxCategoria">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
-            <StringItem index="0" value="Elige una opci&#xf3;n"/>
+          <StringArray count="37">
+            <StringItem index="0" value="Aventura"/>
+            <StringItem index="1" value="Ciencia Ficci&#xf3;n"/>
+            <StringItem index="2" value="Polic&#xed;aca"/>
+            <StringItem index="3" value="Terro y misterio"/>
+            <StringItem index="4" value="Rom&#xe1;ntica"/>
+            <StringItem index="5" value="Humor"/>
+            <StringItem index="6" value="Poes&#xed;a"/>
+            <StringItem index="7" value="Mitolog&#xed;a"/>
+            <StringItem index="8" value="Teatro"/>
+            <StringItem index="9" value="Cuento"/>
+            <StringItem index="10" value="Matem&#xe1;ticas"/>
+            <StringItem index="11" value="Astronom&#xed;a y ciencias afines "/>
+            <StringItem index="12" value="F&#xed;sica"/>
+            <StringItem index="13" value="Qu&#xed;mica y ciencias afines"/>
+            <StringItem index="14" value="Geociencias"/>
+            <StringItem index="15" value="Paleontolog&#xed;a"/>
+            <StringItem index="16" value="Ciencias biol&#xf3;gicas"/>
+            <StringItem index="17" value="Ciencias bot&#xe1;nicas"/>
+            <StringItem index="18" value="Ciencias zool&#xf3;gicas"/>
+            <StringItem index="19" value="Religi&#xf3;n natural"/>
+            <StringItem index="20" value="Biblia"/>
+            <StringItem index="21" value="Teolog&#xed;a cristiana"/>
+            <StringItem index="22" value="Moral y pr&#xe1;cticas cristianas"/>
+            <StringItem index="23" value="Iglesia local y &#xf3;rdenes religiosas"/>
+            <StringItem index="24" value="Teolog&#xed;a social y eclesiolog&#xed;a"/>
+            <StringItem index="25" value="Historia y geograf&#xed;a de la iglesia"/>
+            <StringItem index="26" value="Credos de la iglesia cristiana"/>
+            <StringItem index="27" value="Otras religiones"/>
+            <StringItem index="28" value="Ciencias m&#xe9;dicas"/>
+            <StringItem index="29" value="Ingenier&#xed;a y operaciones afines"/>
+            <StringItem index="30" value="Agricultura y tecnolog&#xed;as afines"/>
+            <StringItem index="31" value="Econom&#xed;a dom&#xe9;stica"/>
+            <StringItem index="32" value="Servicios administrativos empresariales"/>
+            <StringItem index="33" value="Qu&#xed;mica industrial"/>
+            <StringItem index="34" value="Manufacturas"/>
+            <StringItem index="35" value="Manufacturas varias"/>
+            <StringItem index="36" value="Construcciones"/>
           </StringArray>
         </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxCategoriaItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxCategoriaActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -74,11 +115,10 @@
         <Component class="javax.swing.JTable" name="tblLibros">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              <Table columnCount="3" rowCount="0">
+                <Column editable="false" title="ISBN" type="java.lang.String"/>
+                <Column editable="false" title="Titulo" type="java.lang.String"/>
+                <Column editable="false" title="Precio" type="java.lang.String"/>
               </Table>
             </Property>
           </Properties>

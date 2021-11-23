@@ -139,10 +139,7 @@ public class FrameConexion extends javax.swing.JFrame {
                 l.setVisible(true);
                 this.dispose();
             }else{
-                //txtUsuario.setText("");
                 txtUsuario.setBorder(BorderFactory.createLineBorder(Color.RED));
-                
-                //pwrContraseña.setText("");
                 pwrContraseña.setBorder(BorderFactory.createLineBorder(Color.RED)); 
            }
     }//GEN-LAST:event_btnIngresarActionPerformed

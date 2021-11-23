@@ -5,12 +5,20 @@
  */
 package LoginLibreria;
 
+import Includes.Conexion;
 import PagInicio.Panel1;
 import Utilerias.Mostrar;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.ResultSet;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.PreparedStatement;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -345,7 +353,45 @@ public class LoginLibreria extends javax.swing.JFrame {
         Contenedor.removeAll();
         Contenedor.add(lib, BorderLayout.CENTER);
         Contenedor.revalidate();
-        Contenedor.repaint();
+        Contenedor.repaint(); 
+        Conexion conn = new Conexion();
+        conn.estableceConexion("Eduardo","987456321");
+        ResultSet rs;
+        String sql = """
+                        SELECT l.nombre_libreria, l.telefono,l.direccion, 
+                        	CONCAT(e.nombre_persona, ' ', e.apellido_paterno, ' ', e.apellido_materno) as encargado
+                        FROM libreria.libreria as l, libreria.encargado as e
+                        WHERE  e.rfc = l.rfc
+                        ORDER BY libreria_id;
+                     """;
+        
+        
+        try {
+            DefaultTableModel modelo = new DefaultTableModel();
+            lib.getTblLibrerias().setModel(modelo);
+            PreparedStatement st ;
+            st = conn.cn.prepareStatement(sql);
+            rs = st.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int numColumnas = rsMd.getColumnCount();
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Telefono");
+            modelo.addColumn("Direccion");
+            modelo.addColumn("Encargado");
+            while (rs.next()) {                
+                Object[] filas = new Object[numColumnas];
+                for (int i = 0; i < numColumnas; i++) {
+                    filas[i] = rs.getObject(i+1);
+                }
+                modelo.addRow(filas);
+            }
+                    
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginLibreria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
         lib.setVisible(true);
     }//GEN-LAST:event_btnLibreriasActionPerformed
 
