@@ -6,9 +6,11 @@
 package LoginLibreria;
 
 import PagInicio.Panel1;
+import Utilerias.FondoImagen;
 import Utilerias.Mostrar;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,19 +24,23 @@ public class LoginLibreria extends javax.swing.JFrame {
     PanelLibrerias lib = new PanelLibrerias();
     PanelLibros book = new PanelLibros();
     Panel1 panel1 = new Panel1();
+
     public LoginLibreria() {
         initComponents();
         transparenciaBotones();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        
-        panel1.setSize(750, 500);
+        this.setBackground(Color.BLACK);
+
+        panel1.setSize(Contenedor.getWidth(), Contenedor.getHeight());
         panel1.setLocation(0, 0);
+        panel1.setBorder(BorderFactory.createLineBorder(Color.BLACK,3));
         //Contenedor.removeAll();
-        Contenedor.add(panel1, BorderLayout.CENTER);
+        Contenedor.add(panel1);
         Contenedor.revalidate();
         Contenedor.repaint();
         panel1.setVisible(true);
+        
 
     }
 
@@ -68,7 +74,9 @@ public class LoginLibreria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Utilerias.FondoImagen fondo = new FondoImagen();
+        fondo.setRuta("LibroInicio.jpeg");
+        jPanel1 = fondo;
         btnInicio = new javax.swing.JButton();
         btnReportes = new javax.swing.JButton();
         btnFact = new javax.swing.JButton();
@@ -76,21 +84,21 @@ public class LoginLibreria extends javax.swing.JFrame {
         btnLibros = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         Contenedor = new javax.swing.JPanel();
-        btnAtras = new javax.swing.JButton();
-        btnSiguiente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
-        btnInicio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnInicio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnInicio.setForeground(new java.awt.Color(255, 255, 255));
-        btnInicio.setText("     Inicio");
+        btnInicio.setText("   Inicio");
         btnInicio.setBorder(null);
         btnInicio.setBorderPainted(false);
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnInicio.setRequestFocusEnabled(false);
         btnInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnInicioMouseEntered(evt);
@@ -105,7 +113,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             }
         });
 
-        btnReportes.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnReportes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnReportes.setForeground(new java.awt.Color(255, 255, 255));
         btnReportes.setText("Reportes");
         btnReportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -124,7 +132,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             }
         });
 
-        btnFact.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnFact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnFact.setForeground(new java.awt.Color(255, 255, 255));
         btnFact.setText("Facturación");
         btnFact.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,7 +151,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             }
         });
 
-        btnLibrerias.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnLibrerias.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnLibrerias.setForeground(new java.awt.Color(255, 255, 255));
         btnLibrerias.setText("Librerias");
         btnLibrerias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -162,7 +170,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             }
         });
 
-        btnLibros.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnLibros.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnLibros.setForeground(new java.awt.Color(255, 255, 255));
         btnLibros.setText("Libros");
         btnLibros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -181,7 +189,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -204,7 +212,7 @@ public class LoginLibreria extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnFact, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+            .addComponent(btnFact, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
             .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnLibrerias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,35 +231,21 @@ public class LoginLibreria extends javax.swing.JFrame {
                 .addComponent(btnLibrerias, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         Contenedor.setBackground(new java.awt.Color(0, 0, 0));
 
-        btnAtras.setText("Atras");
-
-        btnSiguiente.setText("Siguiente");
-
         javax.swing.GroupLayout ContenedorLayout = new javax.swing.GroupLayout(Contenedor);
         Contenedor.setLayout(ContenedorLayout);
         ContenedorLayout.setHorizontalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ContenedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAtras)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 566, Short.MAX_VALUE)
-                .addComponent(btnSiguiente)
-                .addContainerGap())
+            .addGap(0, 725, Short.MAX_VALUE)
         );
         ContenedorLayout.setVerticalGroup(
             ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContenedorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAtras)
-                    .addComponent(btnSiguiente))
-                .addContainerGap())
+            .addGap(0, 584, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,7 +254,7 @@ public class LoginLibreria extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -279,7 +273,7 @@ public class LoginLibreria extends javax.swing.JFrame {
 
     private void btnLibrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibrosMouseEntered
         btnLibros.setContentAreaFilled(true);
-        btnLibros.setBackground(Color.BLUE);
+        btnLibros.setBackground(Color.MAGENTA);
     }//GEN-LAST:event_btnLibrosMouseEntered
 
     private void btnLibreriasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLibreriasMouseExited
@@ -292,7 +286,7 @@ public class LoginLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLibreriasMouseEntered
 
     private void btnFactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactActionPerformed
-        fac.setSize(750, 500);
+        fac.setSize(Contenedor.getWidth(), Contenedor.getHeight());
         fac.setLocation(0, 0);
         Contenedor.removeAll();
         Contenedor.add(fac, BorderLayout.CENTER);
@@ -311,7 +305,7 @@ public class LoginLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFactMouseEntered
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-        rep.setSize(750, 500);
+        rep.setSize(Contenedor.getWidth(), Contenedor.getHeight());
         rep.setLocation(0, 0);
         Contenedor.removeAll();
         Contenedor.add(rep, BorderLayout.CENTER);
@@ -341,7 +335,7 @@ public class LoginLibreria extends javax.swing.JFrame {
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
         btnSalir.setContentAreaFilled(true);
-        btnSalir.setBackground(Color.BLUE);
+        btnSalir.setBackground(Color.MAGENTA);
     }//GEN-LAST:event_btnSalirMouseEntered
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
@@ -349,11 +343,15 @@ public class LoginLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirMouseExited
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        
+        Contenedor.removeAll();
+        Contenedor.add(panel1);
+        Contenedor.revalidate();
+        Contenedor.repaint();
+        panel1.setVisible(true);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnLibreriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibreriasActionPerformed
-        lib.setSize(750, 500);
+        lib.setSize(Contenedor.getWidth(), Contenedor.getHeight());
         lib.setLocation(0, 0);
         Contenedor.removeAll();
         Contenedor.add(lib, BorderLayout.CENTER);
@@ -363,7 +361,7 @@ public class LoginLibreria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLibreriasActionPerformed
 
     private void btnLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLibrosActionPerformed
-        book.setSize(750, 500);
+        book.setSize(Contenedor.getWidth(), Contenedor.getHeight());
         book.setLocation(0, 0);
         Contenedor.removeAll();
         Contenedor.add(book, BorderLayout.CENTER);
@@ -417,14 +415,12 @@ public class LoginLibreria extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Contenedor;
-    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnFact;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnLibrerias;
     private javax.swing.JButton btnLibros;
     private javax.swing.JButton btnReportes;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnSiguiente;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

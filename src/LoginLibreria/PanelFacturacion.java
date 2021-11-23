@@ -41,6 +41,8 @@ public class PanelFacturacion extends javax.swing.JPanel {
         lblCantidadDoc = new javax.swing.JLabel();
         lblSubDoc = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 153, 153));
+
         lblIdFact.setText("ID FACTURA:");
 
         btnBuscarFact.setText("Buscar");
