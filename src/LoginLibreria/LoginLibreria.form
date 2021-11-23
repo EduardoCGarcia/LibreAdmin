@@ -7,6 +7,8 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="0" green="0" red="0" type="rgb"/>
     </Property>
+    <Property name="locationByPlatform" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -27,20 +29,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Component id="Contenedor" min="-2" max="-2" attributes="0"/>
           </Group>
-=======
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
->>>>>>> 9d990a699d5d159ae617c7ddb25d236afaaa1daa
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" max="32767" attributes="0"/>
+          <Component id="Contenedor" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -64,32 +63,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
               <Component id="btnFact" alignment="0" pref="162" max="32767" attributes="0"/>
-              <Component id="btnReportes" alignment="0" max="32767" attributes="0"/>
-              <Component id="btnInicio" alignment="0" max="32767" attributes="0"/>
               <Component id="btnLibrerias" alignment="0" max="32767" attributes="0"/>
               <Component id="btnLibros" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnReportes" max="32767" attributes="0"/>
+              <Component id="btnInicio" alignment="0" max="32767" attributes="0"/>
               <Component id="btnSalir" alignment="0" max="32767" attributes="0"/>
-=======
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnFact" pref="143" max="32767" attributes="0"/>
-                      <Component id="btnReportes" max="32767" attributes="0"/>
-                      <Component id="btnInicio" max="32767" attributes="0"/>
-                      <Component id="btnLibrerias" max="32767" attributes="0"/>
-                      <Component id="btnLibros" max="32767" attributes="0"/>
-                      <Component id="btnSalir" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Contenedor" min="-2" max="-2" attributes="0"/>
-              </Group>
->>>>>>> 9d990a699d5d159ae617c7ddb25d236afaaa1daa
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Component id="btnInicio" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnReportes" min="-2" pref="34" max="-2" attributes="0"/>
@@ -99,14 +83,9 @@
                   <Component id="btnLibrerias" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnLibros" min="-2" pref="34" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <EmptySpace pref="350" max="32767" attributes="0"/>
-=======
-                  <EmptySpace pref="229" max="32767" attributes="0"/>
->>>>>>> 9d990a699d5d159ae617c7ddb25d236afaaa1daa
-                  <Component id="btnSalir" min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Component id="Contenedor" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -223,7 +202,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/iconSalida.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -235,14 +218,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="Contenedor">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-          </Properties>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="Contenedor">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+      </Properties>
 
-<<<<<<< HEAD
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -251,26 +235,10 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="584" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="510" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
-=======
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="730" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-      </SubComponents>
->>>>>>> 9d990a699d5d159ae617c7ddb25d236afaaa1daa
     </Container>
   </SubComponents>
 </Form>

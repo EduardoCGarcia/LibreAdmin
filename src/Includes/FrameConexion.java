@@ -136,7 +136,9 @@ public class FrameConexion extends javax.swing.JFrame {
             c.estableceConexion(txtUsuario.getText(), String.copyValueOf(pwrContraseña.getPassword()));
             if(c.cn!=null){
                 LoginLibreria l = new LoginLibreria();
+                l.setLocationRelativeTo(null);
                 l.setVisible(true);
+                l.toFront();
                 this.dispose();
             }else{
                 txtUsuario.setBorder(BorderFactory.createLineBorder(Color.RED));
