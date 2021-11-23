@@ -17,8 +17,6 @@ public class Panel1 extends javax.swing.JPanel {
     
     public Panel1() {
         initComponents();
-        //fondo.setRuta("loginicio.jpg");
-        //this.setContentPane(fondo);
     }
 
     /**

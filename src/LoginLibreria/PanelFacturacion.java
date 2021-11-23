@@ -82,6 +82,8 @@ public class PanelFacturacion extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable2);
 
+        setBackground(new java.awt.Color(153, 153, 153));
+
         lblIdFact.setText("ID FACTURA:");
 
         btnBuscarFact.setText("Buscar");
