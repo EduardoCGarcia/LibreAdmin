@@ -5,15 +5,16 @@
  */
 package Includes;
 
+import LoginLibreria.LoginLibreria;
 import Utilerias.Mostrar;
 import java.sql.DriverManager;
 import java.sql.Connection;
 
 public class Conexion {
 
-    public static Connection cn = null;
+    public Connection cn = null;
 
-    public Connection estableceConexion(String usuario,String contraseña,javax.swing.JTextField lblUsuario,javax.swing.JPasswordField pwrContraseña) {
+    public Connection estableceConexion(String usuario,String contraseña) {
         String servidor = "localhost";
         String bd = "Libreria"; //Nombre de la BD
         String puerto = "5432"; //Puerto de enlace
@@ -22,13 +23,13 @@ public class Conexion {
         try {
             Class.forName("org.postgresql.Driver");
             cn = DriverManager.getConnection(cadena, usuario, contraseña);
-            System.out.println("Conexion exitosa");
         } catch (Exception e) {
             System.out.println((e.getMessage()));
             Mostrar.Mensaje("Usuario o contraseña incorrectos");
-            lblUsuario.setText("");
-            pwrContraseña.setText("");
         }
         return cn;
     }
+
+
+    
 }
